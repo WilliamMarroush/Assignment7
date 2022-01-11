@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import gifCard from './components/gifCard'
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [gif,setGif] = useState([]);
+  const getGif = async()=>{
+    await axios.get("http://api.giphy.com/v1/gifs/random?api_key=3QDCy7vrNYATU6nWpLPnfmDL6D77Aahk")
+    .then(res=>{
+      setGif(res.data);
+    })
+  }
+  useEffect(()=>{
+    getGif();
+  },[])
+  console.log(gif);
+  return (<div>
+    Still Working
+    <div className='container'>
+      <gifCard gif={element}/>
     </div>
+  </div>
   );
 }
-
 export default App;
