@@ -1,11 +1,9 @@
 import './App.css';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import gifCard from './components/gifCard'
+import RandGif from './components/RandGif'
 
 
 function App() {
-  const [gif,setGif] = useState([]);
+  /*const [gif,setGif] = useState([]);
   const getGif = async()=>{
     await axios.get("http://api.giphy.com/v1/gifs/random?api_key=3QDCy7vrNYATU6nWpLPnfmDL6D77Aahk")
     .then(res=>{
@@ -15,11 +13,12 @@ function App() {
   useEffect(()=>{
     getGif();
   },[])
-  console.log(gif);
-  return (<div>
+  console.log(gif);*/
+  return (
+  <div>
     Still Working
     <div className='container'>
-      <gifCard gif={element}/>
+      <RandGif></RandGif>
     </div>
   </div>
   );
